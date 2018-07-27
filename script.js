@@ -194,7 +194,7 @@ if (!mobileScreen) {
 	var bubbleSizeLegend = legendWrapper.append("g")
 							.attr("transform", "translate(" + (legendWidth/2 - 30) + "," + (color.domain().length*rowHeight + 20) +")");
 	//Draw the bubble size legend
-	bubbleLegend(bubbleSizeLegend, rScale, legendSizes = [1e11,3e12,1e13], legendName = "Count (Billion $)");		
+	bubbleLegend(bubbleSizeLegend, rScale, legendSizes = [5,50,250], legendName = "Count of Type");		
 }//if !mobileScreen
 else {
 	d3.select("#legend").style("display","none");
@@ -263,19 +263,19 @@ function bubbleLegend(wrapperVar, scale, sizes, titleName) {
         .attr('x', (legendCenter + legendLineLength + textPadding))
         .attr('y', (legendBottom-2*scale(legendSize1)))
 		.attr('dy', '0.25em')
-		.text("$ " + numFormat(Math.round(legendSize1/1e9)) + " B");
+		.text(numFormat(Math.round(legendSize1)));
 	wrapperVar.append("text")
         .attr('class',"legendText")
         .attr('x', (legendCenter + legendLineLength + textPadding))
         .attr('y', (legendBottom-2*scale(legendSize2)))
 		.attr('dy', '0.25em')
-		.text("$ " + numFormat(Math.round(legendSize2/1e9)) + " B");
+		.text(numFormat(Math.round(legendSize2)));
 	wrapperVar.append("text")
         .attr('class',"legendText")
         .attr('x', (legendCenter + legendLineLength + textPadding))
         .attr('y', (legendBottom-2*scale(legendSize3)))
 		.attr('dy', '0.25em')
-		.text("$ " + numFormat(Math.round(legendSize3/1e9)) + " B");
+		.text(numFormat(Math.round(legendSize3)));
 		
 }//bubbleLegend
 
